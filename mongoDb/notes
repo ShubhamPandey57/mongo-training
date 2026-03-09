@@ -1,0 +1,40 @@
+MongoDb is an open source database developed by MongoDb, Inc.
+MongoDb stores data in JSON like structure.
+It is a NoSql database.
+MongoDb used BSON(Binary Javascript Object Notation) to query database.
+
+# MysQL #                                            # MongoDb #
+=>Table                                            =>Collection
+=>Row                                              =>Document
+=>Column                                           =>Field
+
+
+Logical Operator
+$and-all conditions must be true
+condition 1               condition 2               result
+T                              T                       T
+T                              F                       F
+F                              T                       F
+F                              F                       F
+
+$or-one conditions must be true
+condition 1               condition 2               result
+T                              T                       T
+T                              F                       T
+F                              T                       T
+F                              F                       F
+
+$not-all conditions must be true
+condition 1                  result
+T                              F                      
+F                              T                   
+                                                  
+findById() is a built-in method from mongoose used to fetch a single document by its _id from MongoDB
+findByIdAndUpdate() is a built-in method from mongoose used to find by its _id na dupdate it in one query.
+findByIdAndDelete() is a built-in method from mongoose used to delete by its _id.
+
+
+SELECT SPECIFIC FIELDS IN MONGOOSE, IN MONOGOOSE ,YOU CAN SELECT SPECIFIC FIELDS FROMA DOCUMENT USING THE .SELECT() METHOD THIS HELPS IN:
+-IMPROVES PERFORMANCE
+-REDUCE UNNCESSARY DATA
+-HIDE SENSITIVE FIELDS(LIKE PASSWORD)
