@@ -331,9 +331,45 @@ connectData()
 //   res.send("Users Detail Inserted");
 // })
 
+
+const postSchema =new mongoose.Schema({
+  title:String,
+  userId:mongoose.Schema.Types.ObjectId
+})
+const Post=mongoose.model("Post",postSchema)
+// app.post("/Post",async(req,res)=>{
+//   await Post.insertMany([
+//     {title:"nodejs",userId:"69a927c95d6816667b4104b1"},
+//     {title:"express.js",userId:"69a927c95d6816667b4104b1"},
+//     {title:"mongodb",userId:"69a927c95d6816667b4104b2"},
+//     {title:"reactjs",userId:"69a927c95d6816667b4104b3"},
+//     {title:"javascript",userId:"69a927c95d6816667b4104b4"},
+//     {title:"es6",userId:"69a927c95d6816667b4104b4"},
+//   ])
+// res.send("Post Detail Inserted");
+// })
+
+
 // app.get("/User",async(req,res)=>{
 //    const users=await User.find()
 //    res.json(users)
+// })
+
+// app.get("/Post-with-users",async(req,res)=>{
+//   const data=await Post.aggregate([
+//     {
+//       $lookup:{                        //$lookup in MongoDB is an aggregation stage that performs a join between collections—like a SQL JOIN—by matching a local field with a foreign field and adding the results as a new array field in the output documents.
+//         from:"users",
+//         localField:"userId",
+//         foreignField:"_id",
+//         as:"userDetails"
+//       }
+//     },
+//     {
+// $unwind:"$userDetails"                // convert array to object
+//     }
+//   ])
+//   res.json(data)
 // })
 
 //limit() => RESTRICT THE NUMBER OF RESULT RETURNED.
@@ -367,15 +403,28 @@ connectData()
 //   }
 // })
 
+//VALIDATORS IN MONGOOSE
+//create userSchema with all possible validators
+app.get("/Post-with-users",async(req,res)=>{
+  const data=await Post.validate([
+    {name:{
+        type:String,
+        required:[true,"Name is required"]
+    }}
+  ])
+  res.json(data)
+})
+
+
 //---------------------------------------------------------------------------------------------------------
 //new schema
-const studentSchema = new mongoose.Schema({
-  fullname:String,
-  age:Number,
-  course:String,
-  marks:Number
-})
-const Student = mongoose.model('Student', studentSchema)
+// const studentSchema = new mongoose.Schema({
+//   fullname:String,
+//   age:Number,
+//   course:String,
+//   marks:Number
+// })
+// const Student = mongoose.model('Student', studentSchema)
 // app.post("/Student", async (req, res) => {
 //   await Student.insertMany([
 //     { fullname: "Aman Sharma", age: 21, course: "B.Tech CSE", marks: 85 },
@@ -567,17 +616,141 @@ const Student = mongoose.model('Student', studentSchema)
 // })
 
 //list Students age =22 and 23 (case insensitive:= $options:"i")
-app.get("/Student", async (req, res) => {
-  try {
-    const students = await Student.find({age:{$in:[22,23]}})
-    if (!students ) {
-      return res.json({ message: "student not found" })
-    }
-    res.json(students)
-  } catch (error) {
-    res.json({ error: error.message })
-  }
-})
+// app.get("/Student", async (req, res) => {
+//   try {
+//     const students = await Student.find({age:{$in:[22,23]}})
+//     if (!students ) {
+//       return res.json({ message: "student not found" })
+//     }
+//     res.json(students)
+//   } catch (error) {
+//     res.json({ error: error.message })
+//   }
+// })
+
+//------------------------------------------------------------------------------------------------//
+
+//aggregate() -->pipline flow:-- collection-->stage1-->stage2-->stage3-->result
+// const OrderSchema = new mongoose.Schema({
+//   customer:String,
+//   product:String,
+//   price:Number,
+//   quantity:Number,
+//   staus:String
+// })
+// const Order = mongoose.model('Order', OrderSchema)
+
+// app.post("/Order",async(req,res)=>{
+//   await Order.insertMany([
+//     {customer: "Alice Johnson",product: "Wireless Mouse",price: 1200,quantity: 2,status: "Pending"},
+//   {customer: "Ravi Kumar",product: "Bluetooth Headphones",price: 3500,quantity: 1,status: "Shipped"},
+//   {customer: "Sophia Lee",product: "Mechanical Keyboard",price: 4500,quantity: 1,status: "Delivered" },
+//   {customer: "David Smith",product: "USB-C Charger",price: 800,quantity: 3,status: "Cancelled"},
+//   {customer: "Priya Sharma",product: "Smartwatch",price: 7500,quantity: 1,status: "Processing"}
+//   ])
+//   res.send("Data Inserted")
+// })
+
+//simple fetch
+// app.get("/Order",async(req,res)=>{
+//   try {
+//     const orders=await Order.find()
+//     if (!orders ) {
+//       return res.json({ message: "student not found" })
+//     }
+//     res.json(orders)
+//   } catch (error) {
+//     res.json({ error: error.message })
+//   }
+// })
+
+
+//multiple query passing
+// app.get("/Order",async(req,res)=>{
+//   const orders=await Order.aggregate([
+//     {$match:{status:"Delivered"}}
+//   ])
+//   res.json(orders)
+// })
+
+// $group(to group the data)
+// app.get("/Order",async(req,res)=>{
+//   const orders=await Order.aggregate([
+//     {$group:{
+//       _id:"$customer",
+//       totalQuantity:{$sum:"$quantity"}
+//     }}
+//   ])
+//   res.json(orders)
+// })
+
+// "$project" is used to select fields, hide fields, rename fields or create new computed fields in the result.
+// app.get("/Order",async(req,res)=>{
+//   const orders=await Order.aggregate([
+//     {$project:
+//       {
+//         _id:0,  //id is not showed because of 0 if 1 it showed
+//         customer:1,
+//         price:1,
+//         quantity:1,
+//         amount:{$multiply:["$price","$quantity"]}}
+//     }
+//   ])
+// res.json(orders)
+// })
+
+//ADD 18% tax
+// app.get("/Order",async(req,res)=>{
+//   const orders=await Order.aggregate([
+//     {$project:
+//       {
+//         _id:0,  //id is not showed because of 0 if 1 it showed
+//         customer:1,
+//         price:1,
+//         quantity:1,
+//         totalwithtax:{$multiply: ["$price","$quantity",0.18]}}
+//     }
+//   ])
+// res.json(orders)
+// })
+
+
+// hide id, show-->customer,price,quantity,amount,discount(10%),payment
+// app.get("/Order",async(req,res)=>{
+//   const orders=await Order.aggregate([
+//     {$project:
+//       {
+//         _id:0,  
+//         customer:1,
+//         price:1,
+//         quantity:1,
+//         amount:{$multiply:["$price","$quantity"]},
+//         discount:{$multiply:["$price","$quantity",0.1]},
+//         payment:{$subtract:[{$multiply:["$price","$quantity"]},{$multiply:["$price","$quantity",0.1]}]}
+//     }}
+//   ])
+// res.json(orders)
+// })
+
+
+//show top 2 payments
+// app.get("/Order",async(req,res)=>{
+//   const orders=await Order.aggregate([
+//     {$project:
+//       {
+//         _id:0,  
+//         customer:1,
+//         price:1,
+//         quantity:1,
+//         amount:{$multiply:["$price","$quantity"]},
+//         discount:{$multiply:["$price","$quantity",0.1]},
+//         payment:{$subtract:[{$multiply:["$price","$quantity"]},{$multiply:["$price","$quantity",0.1]}]}
+//     }},
+//     {$sort:{payment:-1}},
+//     {$limit:2}
+//   ])
+// res.json(orders)
+// })
 
 
 

@@ -3,11 +3,14 @@ MongoDb stores data in JSON like structure.
 It is a NoSql database.
 MongoDb used BSON(Binary Javascript Object Notation) to query database.
 
+-----------------------------------------------------------------------------------------------------
+
 # MysQL #                                            # MongoDb #
 =>Table                                            =>Collection
 =>Row                                              =>Document
 =>Column                                           =>Field
 
+-----------------------------------------------------------------------------------------------------
 
 Logical Operator
 $and-all conditions must be true
@@ -28,13 +31,165 @@ $not-all conditions must be true
 condition 1                  result
 T                              F                      
 F                              T                   
+
+-----------------------------------------------------------------------------------------------------
                                                   
 findById() is a built-in method from mongoose used to fetch a single document by its _id from MongoDB
 findByIdAndUpdate() is a built-in method from mongoose used to find by its _id na dupdate it in one query.
 findByIdAndDelete() is a built-in method from mongoose used to delete by its _id.
+
+-----------------------------------------------------------------------------------------------------
 
 
 SELECT SPECIFIC FIELDS IN MONGOOSE, IN MONOGOOSE ,YOU CAN SELECT SPECIFIC FIELDS FROMA DOCUMENT USING THE .SELECT() METHOD THIS HELPS IN:
 -IMPROVES PERFORMANCE
 -REDUCE UNNCESSARY DATA
 -HIDE SENSITIVE FIELDS(LIKE PASSWORD)
+
+-----------------------------------------------------------------------------------------------------
+
+
+aggregate()process documents through pipeline stages. Each stage takes input documenst, perform an operation and passes the result to the next stage.
+
+db.collection.aggregate([
+{stage1},
+{stage2},
+{stage3}
+])
+pipeline flow like:
+collection-->stage1-->stage2-->stage3-->result
+
+-----------------------------------------------------------------------------------------------------
+
+
+IN MONGODB, KEY ARE FIELDS USED TO UNIQUELY IDENTIFY DOCUMENTS, CREATE RELATIONSHIPS OR IMPROVE PERFORMANCE.
+ 1.primary key(_id)=>every document in mongodb must have primary key called "_id".
+ _id uniquely identifies the document. Mongodb automatically creates it, usually stored as objectid.
+ for example: _idobjectid("69a927c95d6816667b4104b0")
+ 2.foreign key(reference key) => mongodb does not enforce foreign keys like sql, but you can store another document's _id as a reference.
+ for example: users's collection{
+    _id:objectid('1'),
+    "name":"rahul"
+ }
+ orders collection{
+    _id:objectid('10'),
+    "product":"laptop",
+    userid:objectid('1')           # userid => reference the user's._id
+ }
+
+-----------------------------------------------------------------------------------------------------
+
+VALIDATORS IN MONGOOSE
+validators check if the data is correct before saving it. If the data does not meet the rules, mongoose throws a validation error and the document is not saved.
+1. required validator=> name:{
+                             type:String,
+                             requires:true
+                             }
+    custom message:
+    name:{
+        type:String,
+        required:[true,"Name is required"]
+    }
+
+2. minlength validator(minimum number of characters for strings.)
+    name:{
+        type:String,
+        minlength:3
+        }
+
+    custom message:
+    name:{
+        type:String,
+        required:[3,"user name must be atleast of 3 characters"]
+    }
+
+3. maxlength validator(maximum number of characters for strings.)
+    name:{
+        type:String,
+        minlength:25
+        }
+        
+    custom message:
+    name:{
+        type:String,
+        required:[25,"user name can not greater than 25 characters"]
+    }
+
+4. min validator(minimum number for numbers and dates.)
+    age:{
+        type:Number,
+        min:18
+        }
+
+    custom message:
+    age:{
+        type:Number,
+        required:[18,"age must be atleast of 18"]
+    }
+
+5. max validator(maximum number for numbers and dates.)
+    age:{
+        type:Number,
+        min:80
+        }
+
+    custom message:
+    age:{
+        type:Number,
+        required:[80,"age can not greater than 80"]
+    }
+
+6. enum validator(allows only specific values.)
+    role:{
+        type:String,
+        enum:["user","admin","manager"]
+        }
+
+    custom message:
+    role:{
+        type:Number,
+        required:[["user","admin","manager"],"only specific column will show"]
+    }
+
+7. unique validator(create a unique index so values cannot repeat.)
+    email:{
+        type:String,
+        unique:true
+        }
+
+8. match validator(uses regular expression to validate String.) use "https://regex101.com/" to validate a string
+    info@gmail.com(valid)
+    info@@gmail.com(invalid)
+    info@gmail...com(invalid)
+
+    email:{
+        type:String,
+        match:[/^\S+@\S+\.\S+$/,""please enter a valid email]
+        }
+
+9. custom validator(you can create your own validartion login.)
+        for example: ONLY EVEN NUMBERS ARE ALLOWED
+        age:{
+        type:Number,
+        validate:function(num){
+            return num%2==0
+        },
+        message:"age must be an even number"
+        }
+
+-------------------------------------------------------------------------------------------------------------
+
+validation with middleware
+note: without middleware validation takes more step to execute
+validation with middleware means checking the correctness of data automatically before saving or updating in the database.
+If validation fails, middleware prevents the operation and returns an error.
+
+mongoose provides pre and post middleware.
+
+1. pre middleware runs before an operation happens.
+    for example: save and findByIdAndUpdate
+    user sends data --> pre -validation middleware checks data--> if valid-->save to database
+
+2. post middleware runs after an operation happens.
+    for example: logging and sending email
+    save data --> post middleware runs--> logging/notfication
