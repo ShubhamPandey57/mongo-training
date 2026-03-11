@@ -193,3 +193,5 @@ mongoose provides pre and post middleware.
 2. post middleware runs after an operation happens.
     for example: logging and sending email
     save data --> post middleware runs--> logging/notfication
+    
+--------------------------------------------------------------------------------------------------------------------

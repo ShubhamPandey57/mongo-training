@@ -405,15 +405,15 @@ const Post=mongoose.model("Post",postSchema)
 
 //VALIDATORS IN MONGOOSE
 //create userSchema with all possible validators
-app.get("/Post-with-users",async(req,res)=>{
-  const data=await Post.validate([
-    {name:{
-        type:String,
-        required:[true,"Name is required"]
-    }}
-  ])
-  res.json(data)
-})
+// app.get("/Post-with-users",async(req,res)=>{
+//   const data=await Post.validate([
+//     {name:{
+//         type:String,
+//         required:[true,"Name is required"]
+//     }}
+//   ])
+//   res.json(data)
+// })
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -754,6 +754,6 @@ app.get("/Post-with-users",async(req,res)=>{
 
 
 
-app.listen(5000,()=>{console.log("server running on http://localhost:5000")})
+// app.listen(5000,()=>{console.log("server running on http://localhost:5000")})
 
 
