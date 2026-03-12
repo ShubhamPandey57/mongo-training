@@ -13,28 +13,28 @@ exports.createProduct=async(req,res)=>{
 }
 
 
-//get product
-exports.getProduct=async(req,res)=>{
-    try{
-        const products=await Product.find()
-        res.json(products)
-    }
-    catch(error){
-        res.json({error:error.message})
-    }
-}
+// //get product
+// exports.getProduct=async(req,res)=>{
+//     try{
+//         const products=await Product.find()
+//         res.json(products)
+//     }
+//     catch(error){
+//         res.json({error:error.message})
+//     }
+// }
 
 
-//get single product
-exports.getSingleProduct=async(req,res)=>{
-    try{
-        const products=await Product.findById(req.params.id)
-        res.json(products)
-    }
-    catch(error){
-        res.json({error:error.message})
-    }
-}
+// //get single product
+// exports.getSingleProduct=async(req,res)=>{
+//     try{
+//         const products=await Product.findById(req.params.id)
+//         res.json(products)
+//     }
+//     catch(error){
+//         res.json({error:error.message})
+//     }
+// }
 
 
 //update product
@@ -54,6 +54,19 @@ exports.deleteProduct=async(req,res)=>{
     try{
         const products=await Product.findByIdAndDelete(req.params.id)
         res.send("product deleted")
+    }
+    catch(error){
+        res.json({error:error.message})
+    }
+}
+
+
+//find products according to category
+exports.categoryProduct=async(req,res)=>{
+    try{
+        const category = req.query.category
+        const result = await Product.find({ category: category })
+        res.json(result)
     }
     catch(error){
         res.json({error:error.message})
