@@ -62,10 +62,23 @@ exports.deleteProduct=async(req,res)=>{
 
 
 //find products according to category
-exports.categoryProduct=async(req,res)=>{
+// exports.categoryProduct=async(req,res)=>{
+//     try{
+//         const category = req.query.category
+//         const result = await Product.find({ category: category })
+//         res.json(result)
+//     }
+//     catch(error){
+//         res.json({error:error.message})
+//     }
+// }
+
+
+//find products price >2000
+exports.priceProduct=async(req,res)=>{
     try{
-        const category = req.query.category
-        const result = await Product.find({ category: category })
+        const price = req.query.price
+        const result = await Product.find({price:{$gt:{price}}})
         res.json(result)
     }
     catch(error){
