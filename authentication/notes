@@ -1,0 +1,9 @@
+1. user login
+2. server creates a session(session id)
+3. session id stored in cookie
+4. browser automatically sends the cookie with every request
+5. user stays looged in:
+        - session on server
+        - cookie is valid
+6. logout:
+        -session destroy
