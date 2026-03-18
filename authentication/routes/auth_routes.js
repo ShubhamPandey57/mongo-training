@@ -9,8 +9,8 @@ router.post("/register",authMiddleware,auth_controller.register)      // registe
 router.post("/login",auth_controller.login)      // login
 router.get("/logout",auth_controller.logout)      // logout
 
-router.get("/profile",authMiddleware,async(req,res)=>{
-    const user=await auth_user.findById(req.userId)
+router.get("/profile",authMiddleware,async(req,res)=>{     //using middleware
+    const user=await auth_user.findById(req.session.userId)
     res.json(user)
 })
 module.exports = router;
