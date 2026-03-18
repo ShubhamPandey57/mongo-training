@@ -1,16 +1,20 @@
-const { model } = require("mongoose")
-const User=require("../models/user")
-const authmiddleare=async(req,res,next)=>{
+const jwt =require("jsonwebtoken")
+const authMiddleware=(req,res,next)=>{
+    let token=req.cookies.token
+    //console.log(token)
+    if (!token && req.headers.authorization){
+        token =req.headers.authorization.split(" ")[1]
+    }
+    if(!token){
+        return res.json({message:"Not Logged In"})
+    }
     try{
-        const user=await User(req.body)
-        await user.validate()
+        const decoded=jwt.verify(token,process.env.JWT_SECRET)
+        req.userId=decoded.id
         next()
     }
     catch(error){
-        res.json({
-            success:false,
-            errors:error.errors
-        })
+        res.json({message:"Invalid Token"})
     }
 }
-module.exports=authmiddleare
+module.exports=authMiddleware
