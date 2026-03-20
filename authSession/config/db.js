@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-const ConnectDB_auth=async()=>{
+const ConnectDB_role=async()=>{
     try{
         await mongoose.connect(process.env.MONGO_URI)
         console.log("MongoDB connected successfully")
@@ -9,4 +9,4 @@ const ConnectDB_auth=async()=>{
         process.exit(1)
     }
 }
-module.exports=ConnectDB_auth
+module.exports=ConnectDB_role

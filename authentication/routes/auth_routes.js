@@ -10,7 +10,7 @@ router.post("/login",auth_controller.login)      // login
 router.get("/logout",auth_controller.logout)      // logout
 
 router.get("/profile",authMiddleware,async(req,res)=>{     //using middleware
-    const user=await auth_user.findById(req.session.userId)
+    const user=await auth_user.findById(req.userId)
     res.json(user)
 })
 module.exports = router;
