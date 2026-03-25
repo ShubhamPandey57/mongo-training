@@ -1,17 +1,17 @@
-
+/* 
 .hero {
   position: relative;
   text-align: center;
-  color: rgb(162, 255, 32);
+  color: rgb(121, 0, 0);
 }
 .hero img {
   width: 100%;
   height: auto;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 .hero-text {
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -20,8 +20,63 @@
   border: none;
   color: white;
   padding: 15px 32px;
-  font-size: 16px;
-  cursor: pointer;
   border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-car:hover {
+  background-color: #009acd;
+}
+
+.btn-car:active {
+  transform: scale(0.95);
+} */
+
+
+
+.hero {
+  position: relative;
+  text-align: center;
+  color: rgb(121, 0, 0);
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+}
+
+.hero-text {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+.hero-text h1 {
+  font-size: 3vw; 
+}
+
+
+.btn-car {
+  background-color: deepskyblue;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
   margin-top: 15px;
 }
+
+.btn-car:hover {
+  background-color: #009acd;
+}
+
+.btn-car:active {
+  transform: scale(0.95);
+}
+
