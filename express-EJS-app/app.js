@@ -15,6 +15,17 @@ app.get("/",(req,res)=>{
     //     isLoggedin:true})   
     // res.render("index",{users:["rahul","vikas","ajay","rohan"]})      // for loop with array
 
+app.get("/about", (req, res) => {
+    res.render("about");
+});
+
+app.get("/service", (req, res) => {
+    res.render("service");
+});
+
+app.get("/contact", (req, res) => {
+    res.render("contact");
+});
 
 })
 

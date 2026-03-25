@@ -1,0 +1,3 @@
+<%= %> used for output
+<% %> used for logic
+<%- %> used for raw HTML

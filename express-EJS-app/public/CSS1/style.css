@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    color: blue;
+}
+h2{
+    text-align: center;
+    color: aqua;
+    background-color: black;
+}
+img {
+
+    margin:auto;
+    display: block;
+    width: 800px max-content;
+    height: 400px;
+
+}
