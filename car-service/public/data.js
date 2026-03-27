@@ -16,19 +16,19 @@ const about=[{
 
 const services=[{
     title:"Diagnostic test",
-    image:"\images\service-1.jpg"
+    image:"/images/service-2.jpg"
 },
 {
     title:"Engine servicing",
-    image:"\images\service-2.jpg"
+    image:"/images/service-1.jpg"
 },
 {
     title:"Oil Changing",
-    image:"\images\service-3.jpg"
+    image:"/images/service-3.jpg"
 },
 {
     title:"tire replacement",
-    image:"\images\service-4.jpg"
+    image:"/images/service-5.jpg"
 }]
 
 module.exports={about,services}
