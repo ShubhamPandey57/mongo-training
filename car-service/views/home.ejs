@@ -30,7 +30,27 @@
             </div>
             <% }) %>
         </div>
+        <div class="mt-5">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="images/aboutlist.jpg" alt="abt-list">
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="text-danger my-3">About Us</h4>
+                    <h2><span class="text-danger my-3">CARSEVA</span>The Best Place for your Car Service</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolores cumque repudiandae tenetur sunt praesentium modi, in voluptatibus ad. Accusantium, consequatur veniam maxime molestias odit commodi aperiam natus quo architecto.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-2">✔ Professional & Expert</li>
+                        <li class="mb-2">✔ Quality Servicing Center</li>
+                        <li class="mb-2">✔ Award Winning Workers</li>
+                    </ul>
+
+                    <a href="#" class="btn btn-dark mt-3 px-4">Read More</a>
+                </div>
+            </div>
+        </div>
     </section>
+    
 <!-- services -->
     <section id="service" class="container py-5">
         <h2 class="mb-4 text-center">Our Services</h2>
@@ -41,6 +61,43 @@
                 <img src="<%= item.image %>" class="card-img-top service-card-img" alt ="<%= item.title %>">
                 <div class="card-body">
                 <h5><%= item.title %></h5>
+                </div>
+            </div>
+            </div>
+        <% }) %>
+        </div>
+  </section>
+
+  <%-include('partials/banner')%>
+
+  <!-- Technicians -->
+    <section id="tech" class="container py-5">
+        <h2 class="mb-4 text-center"> OUR Technicians</h2>
+        <div class="row g-4">
+        <% technicians.forEach(function(item){ %>
+            <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-card">
+                <img src="<%= item.image %>" class="card-img-top service-card-img-body" alt ="<%= item.title %>">
+                <div class="card-body text-center">
+                    <h5><%= item.fullname %></h5>
+                    <p><%= item.role %></p>
+                </div>
+            </div>
+            </div>
+        <% }) %>
+        </div>
+  </section>
+  <!-- clients -->
+    <section id="client" class="container py-5">
+        <h2 class="mb-4 text-center"> OUR Clients</h2>
+        <div class="row g-4">
+        <% clients.forEach(function(item){ %>
+            <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-card">
+                <img src="<%= item.image %>" class="card-img-top service-card-img-body" alt ="<%= item.title %>">
+                <div class="card-body text-center">
+                    <h5><%= item.fullname %></h5>
+                    <p><%= item.comments %></p>
                 </div>
             </div>
             </div>

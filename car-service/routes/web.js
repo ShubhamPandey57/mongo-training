@@ -1,10 +1,10 @@
 const express=require("express")
 const router=express.Router()
 
-const{about,services}=require("../public/data")
+const{about,services,technicians, clients}=require("../public/data")
 
 router.get("/",(req,res)=>{
-    res.render("home",{about,services})
+    res.render("home",{about,services,technicians,clients})
 
 // router.get("/about", (req, res) => {
 //     res.render("about");

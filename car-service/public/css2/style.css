@@ -44,7 +44,7 @@
 .hero img {
   width: 100%;
   height: auto;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .hero-text {
@@ -88,4 +88,34 @@
 
 .btn-car:active {
   transform: scale(0.95);
+}
+
+#about h2 {
+    font-size: 32px;
+}
+
+#about ul li {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#about img {
+    max-height: 350px;
+    max-width:auto;
+    object-fit: cover;
+}
+.banner{
+    background-image: linear-gradient(#ffffff7c,#ffffff58),url("../images/banner.jpg");
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
+    background-attachment: fixed;
+}
+
+@media (max-width:992px) {
+  .banner{
+    height: 80vh;
+  }
 }
