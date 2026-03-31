@@ -13,6 +13,6 @@ const validateUser=async(req,res,next)=>{
         })
     }
 }
-
-
 module.exports=validateUser
+
+// module.exports=validateUser
