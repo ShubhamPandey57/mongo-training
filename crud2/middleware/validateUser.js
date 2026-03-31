@@ -1,4 +1,3 @@
-const { model } = require("mongoose")
 const User=require("../modes/user")
 const validateUser=async(req,res,next)=>{
     try{
@@ -15,4 +14,3 @@ const validateUser=async(req,res,next)=>{
 }
 module.exports=validateUser
 
-// module.exports=validateUser
