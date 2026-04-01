@@ -100,9 +100,11 @@
 }
 
 #about img {
+    width: 100%;
+    height: auto;
     max-height: 350px;
-    max-width:auto;
     object-fit: cover;
+    border-radius: 10px;
 }
 .banner{
     background-image: linear-gradient(#ffffff7c,#ffffff58),url("../images/banner.jpg");
