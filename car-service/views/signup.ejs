@@ -8,7 +8,69 @@
     <title>Sign Up </title>
 </head>
 <body>
-    <h1>Signup Page</h1>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css2/style.css">
+    <title>Signup</title>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Create Account</h2>
+            <p class="subtitle">Join our car service platform 🚗</p>
+
+            <!-- Role Tabs -->
+            <div class="role-tabs">
+                <button class="active">Customer</button>
+                <button>Admin</button>
+            </div>
+
+            <!-- Signup Form -->
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" placeholder="Username" required>
+                </div>
+
+                <div class="form-group password-group">
+                    <input type="password" placeholder="Password" required>
+                    <span class="eye">👁</span>
+                </div>
+
+                <div class="form-group password-group">
+                    <input type="password" placeholder="Confirm Password" required>
+                    <span class="eye">👁</span>
+                </div>
+
+                <button class="login-btn">Sign Up</button>
+            </form>
+
+            <div class="divider">Or sign up with</div>
+
+            <!-- Social Signup -->
+            <div class="social-login">
+                <button class="google">Google</button>
+                <button class="facebook">Facebook</button>
+                <button class="apple">Apple</button>
+            </div>
+
+            <p class="signup-text">
+                Already have an account? <a href="login.html">Log in</a>
+            </p>
+        </div>
+    </div>
+
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>

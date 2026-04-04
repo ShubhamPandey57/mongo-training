@@ -121,3 +121,144 @@
     height: 80vh;
   }
 }
+
+
+
+/* signup */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 400px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.login-box h2 {
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Role Tabs */
+.role-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    background: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.role-tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.role-tabs .active {
+    background: #2d6cdf;
+    color: #fff;
+}
+
+/* Inputs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.password-group {
+    position: relative;
+}
+
+.password-group .eye {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.form-options a {
+    text-decoration: none;
+    color: #2d6cdf;
+}
+
+/* Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2d6cdf;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Divider */
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #999;
+}
+
+/* Social */
+.social-login {
+    display: flex;
+    gap: 10px;
+}
+
+.social-login button {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.google { color: #db4437; }
+.facebook { color: #1877f2; }
+.apple { color: #000; }
+
+/* Signup */
+.signup-text {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.signup-text a {
+    color: #2d6cdf;
+    text-decoration: none;
+}
