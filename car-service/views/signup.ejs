@@ -1,75 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css\bootstrap.min.css">
-    <link rel="stylesheet" href="css2\style.css">
-    <title>Sign Up </title>
+  <link rel="stylesheet" href="css2/auth.css" />
+  <title>Sign Up</title>
 </head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css2/style.css">
-    <title>Signup</title>
-</head>
-<body>
-    <div class="login-container">
-        <div class="login-box">
-            <h2>Create Account</h2>
-            <p class="subtitle">Join our car service platform 🚗</p>
+<body class="auth-page">
 
-            <!-- Role Tabs -->
-            <div class="role-tabs">
-                <button class="active">Customer</button>
-                <button>Admin</button>
-            </div>
+  <div class="container">
+    <div class="card">
+      <h1>Sign Up</h1>
 
-            <!-- Signup Form -->
-            <form>
-                <div class="form-group">
-                    <input type="text" placeholder="Full Name" required>
-                </div>
+      <form>
 
-                <div class="form-group">
-                    <input type="email" placeholder="Email" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" placeholder="Username" required>
-                </div>
-
-                <div class="form-group password-group">
-                    <input type="password" placeholder="Password" required>
-                    <span class="eye">👁</span>
-                </div>
-
-                <div class="form-group password-group">
-                    <input type="password" placeholder="Confirm Password" required>
-                    <span class="eye">👁</span>
-                </div>
-
-                <button class="login-btn">Sign Up</button>
-            </form>
-
-            <div class="divider">Or sign up with</div>
-
-            <!-- Social Signup -->
-            <div class="social-login">
-                <button class="google">Google</button>
-                <button class="facebook">Facebook</button>
-                <button class="apple">Apple</button>
-            </div>
-
-            <p class="signup-text">
-                Already have an account? <a href="login.html">Log in</a>
-            </p>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter full name" required />
         </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="Enter email" required />
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Enter password" required />
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" placeholder="Confirm password" required />
+        </div>
+
+        <div class="form-group">
+          <label>Role</label>
+          <select required>
+            <option value="">Select role</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <p class="signup-text">
+        Already have an account?
+        <a href="/login">Login</a>
+        <br><a href="/">HOME</a>
+      </p>
     </div>
+  </div>
 
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
