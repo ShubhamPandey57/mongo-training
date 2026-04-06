@@ -214,22 +214,24 @@
 
 .admin-login-body {
   background: linear-gradient(140deg, #eceff4 0%, #f6f8fb 45%, #ffffff 100%);
-
 }
 
 .admin-login-main {
   display: flex;
   align-items: center;
   min-height: calc(100vh - 56px);
+  
 }
 
 .admin-login-scene {
   position: relative;
+  max-width: 100%;
   min-height: calc(100vh - 56px);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
 }
 
 .admin-login-scene::before {

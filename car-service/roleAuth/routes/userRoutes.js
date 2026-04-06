@@ -12,6 +12,10 @@ router.get("/logout",userController.logout)
 router.get("/admin/dashboard", checkAdminRole, (req, res) => {
     res.render("admin-dashboard")
 })
+router.get("/admin/admin-addservices",(req,res)=>{
+    res.render("admin-addservices")
+})
+
 router.get("/admin/login", (req, res) => {
     res.render("admin-login")
 })
@@ -39,5 +43,6 @@ router.get("/contact",(req,res)=>{
 router.get("/about",(req,res)=>{
     res.render("about")
 })
+
 
 module.exports=router

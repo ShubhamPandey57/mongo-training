@@ -33,7 +33,7 @@ const services = [{
 
 const employee = [
     {
-        name:"Vishal Rawat", role:"CEO & Founder", image:"/images/SAM.jpg"
+        name:"Ronaldo", role:"CEO & Founder", image:"/images/ronaldo.jpg"
     },
 {
     name:"Jane Doe", role:"Customer Service Manager", image:"/images/EMP2.jpg"
