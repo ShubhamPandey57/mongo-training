@@ -1,12 +1,12 @@
-const mongoose=require("mongoose")
-const ConnectDB_auth=async()=>{
+const mongoose=require('mongoose')
+const connectDB=async()=>{
     try{
         await mongoose.connect(process.env.MONGO_URI)
-        console.log("MongoDB connected successfully")
+        console.log("MongoDB Connected")
     }
-    catch{
-        console.error("MongoDB connection failed")
+    catch(error){
+        console.log(error)
         process.exit(1)
     }
 }
-module.exports=ConnectDB_auth
+module.exports=connectDB

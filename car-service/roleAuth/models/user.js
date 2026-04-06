@@ -1,19 +1,19 @@
-const mongoose=require("mongoose")
+const mongoose=require('mongoose')
 
-const role_userSchema=mongoose.Schema({
+
+const userSchema=new mongoose.Schema({
     fullname:{
-        type:String,
-        required:[true,"Fullname is required"],
-        minlength:[3,"Name must be atleast of 3 characters"]
+      type:String,
+      required:true
     },
     email:{
         type:String,
-        required:[true,"Email is required"],
+        required:true,
         unique:true
     },
     password:{
-        type:String,
-        required:true
+    type:String,
+    required:true
     },
     role:{
         type:String,
@@ -21,5 +21,4 @@ const role_userSchema=mongoose.Schema({
         default:"user"
     }
 },{timestamps:true})
-module.exports=mongoose.model("role_User",role_userSchema)
-
+module.exports=mongoose.model("ROLE",userSchema)
