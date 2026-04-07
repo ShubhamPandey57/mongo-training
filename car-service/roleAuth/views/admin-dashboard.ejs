@@ -7,7 +7,7 @@
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/index.css">
-  <!-- <style>
+  <style>
     .dashboard-container {
       display: flex;
       min-height: 100vh;
@@ -54,7 +54,7 @@
     .main-content {
       margin-left: 250px;
       flex: 1;
-      background-color: #ecf0f1;
+      background-color: #000000;
       padding: 20px;
     }
 
@@ -280,8 +280,8 @@
         grid-template-columns: 1fr;
       }
     }
-  </style> -->
-  <style>.card-container {
+  </style>
+  <!-- <style>.card-container {
   display: flex;
   gap: 20px;
   padding: 20px;
@@ -336,21 +336,21 @@
     flex-direction: column;
   }
 }
-</style>
+</style> -->
 </head>
 
-<body>
+<!-- <body>
   <h1>Dashboard</h1>
   <div class="card-container">
 
-  <!-- Services Card -->
+  Services Card
   <div class="card">
     <h2>Services</h2>
     <p>Manage all your services here</p>
     <button class="add-btn"><a href="/admin/admin-addservices"></a>+ Add Service</button>
   </div>
 
-  <!-- Contact Card -->
+  Contact Card
   <div class="card">
     <h2>Contact</h2>
     <p>Manage contact details</p>
@@ -362,7 +362,217 @@
   </div>
 
 
-</div>
+</div> -->
+
+<div class="dashboard-container">
+    Sidebar
+    <div class="sidebar">
+      <div style="padding: 0 20px; margin-bottom: 20px; border-bottom: 1px solid #34495e; padding-bottom: 15px;">
+        <h4 style="margin: 0; color: #3498db;">Service Panel</h4>
+      </div>
+      <ul class="sidebar-menu">
+        <!-- <li class="active" onclick="showSection('overview', this)">
+          <a href="javascript:void(0)">📊 Overview</a>
+        </li>
+        <li onclick="showSection('users', this)">
+          <a href="javascript:void(0)">👥 Manage Users</a>
+        </li>
+        <li onclick="showSection('adduser', this)">
+          <a href="javascript:void(0)">➕ Add User</a>
+        </li> -->
+        <li onclick="showSection('addservice', this)">
+          <a href="javascript:void(0)">Add Service</a>
+        </li>
+        <li onclick="showSection('services', this)">
+          <a href="javascript:void(0)">Manage Services</a>
+        </li>
+        <!-- <li onclick="showSection('settings', this)">
+          <a href="javascript:void(0)">⚙️ Settings</a>
+        </li> -->
+        <li onclick="logoutAdmin()">
+          <a href="javascript:void(0)">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+    Main Content
+    <div class="main-content">
+      <div class="dashboard-header">
+        <h1>SERVICE SECTION</h1>
+        <div class="user-info">
+          <span id="adminName">Admin</span>
+          <button class="logout-btn" onclick="logoutAdmin()">Logout</button>
+        </div>
+      </div>
+
+      <div id="message" class="message"></div>
+
+      <!-- Overview Section
+      <div id="overview" class="dashboard-content active">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Total Users</h3>
+            <div class="value" id="totalUsers">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>Admin Accounts</h3>
+            <div class="value" id="totalAdmins">1</div>
+          </div>
+          <div class="stat-card">
+            <h3>Regular Users</h3>
+            <div class="value" id="totalRegularUsers">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>System Status</h3>
+            <div class="value" style="color: #27ae60;">Active</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="table-container">
+          <h3>Recent Users</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Joined</th>
+              </tr>
+            </thead>
+            <tbody id="recentUsersTable">
+              <tr>
+                <td colspan="4" style="text-align: center; color: #7f8c8d;">No users yet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+
+      <!-- Manage Users Section
+      <div id="users" class="dashboard-content">
+        <div class="table-container">
+          <h2>Manage Users</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Joined Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTable">
+              <tr>
+                <td colspan="5" style="text-align: center; color: #7f8c8d;">Loading users...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+
+      <!-- Add User Section
+      <div id="adduser" class="dashboard-content">
+        <div class="form-section">
+          <h2>Add New User</h2>
+          <form id="addUserForm">
+            <div class="form-group">
+              <label for="fullname">Full Name *</label>
+              <input type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="form-group">
+              <label for="newemail">Email *</label>
+              <input type="email" id="newemail" name="newemail" required>
+            </div>
+            <div class="form-group">
+              <label for="newpassword">Password *</label>
+              <input type="password" id="newpassword" name="newpassword" required>
+            </div>
+            <div class="form-group">
+              <label for="newrole">Role *</label>
+              <select id="newrole" name="newrole" required>
+                <option value="">Select a role</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn">Add User</button>
+          </form>
+        </div>
+      </div> -->
+
+      <!-- Settings Section
+      <div id="settings" class="dashboard-content">
+        <div class="form-section">
+          <h2>Admin Settings</h2>
+          <div style="margin-bottom: 20px;">
+            <h4>System Information</h4>
+            <p><strong>Admin Status:</strong> <span style="color: #27ae60;">Active</span></p>
+            <p><strong>Session Token:</strong> <span style="font-size: 12px; color: #7f8c8d;">Active</span></p>
+            <p><strong>Last Login:</strong> <span id="lastLogin">Just now</span></p>
+          </div>
+          <hr>
+          <h4>Account Management</h4>
+          <button class="submit-btn" onclick="alert('Password change feature coming soon!');" style="margin-bottom: 10px;">Change Password</button>
+          <button class="submit-btn" onclick="alert('Two-factor authentication coming soon!');">Enable 2FA</button>
+        </div>
+      </div> -->
+
+      <!-- Manage Services Section -->
+      <div id="services" class="dashboard-content">
+        <div class="table-container">
+          <h2>Manage Services</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="servicesTable">
+              <tr>
+                <td colspan="6" style="text-align: center; color: #7f8c8d;">Loading services...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Add Service Section -->
+      <div id="addservice" class="dashboard-content">
+        <div class="form-section">
+          <h2>Add New Service</h2>
+          <form id="addServiceForm">
+            <div class="form-group">
+              <label for="serviceTitle">Service Title *</label>
+              <input type="text" id="serviceTitle" name="serviceTitle" placeholder="e.g., Engine Service" required>
+            </div>
+            <div class="form-group">
+              <label for="serviceDescription">Description</label>
+              <input type="text" id="serviceDescription" name="serviceDescription" placeholder="Brief description of the service">
+            </div>
+            <div class="form-group">
+              <label for="serviceImage">Image URL</label>
+              <input type="text" id="serviceImage" name="serviceImage" placeholder="/images/service-name.jpg">
+            </div>
+            <div class="form-group">
+              <label for="servicePrice">Price ($) *</label>
+              <input type="number" id="servicePrice" name="servicePrice" min="0" step="0.01" placeholder="0.00" required>
+            </div>
+            <div class="form-group">
+              <label for="serviceDuration">Duration *</label>
+              <input type="text" id="serviceDuration" name="serviceDuration" placeholder="e.g., 1 hour, 2 hours" required>
+            </div>
+            <button type="submit" class="submit-btn">Add Service</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 
 
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -622,213 +832,4 @@
 </body>
 
 </html>
-<!-- 
-<div class="dashboard-container">
-    Sidebar
-    <div class="sidebar">
-      <div style="padding: 0 20px; margin-bottom: 20px; border-bottom: 1px solid #34495e; padding-bottom: 15px;">
-        <h4 style="margin: 0; color: #3498db;">Admin Panel</h4>
-      </div>
-      <ul class="sidebar-menu">
-        <li class="active" onclick="showSection('overview', this)">
-          <a href="javascript:void(0)">📊 Overview</a>
-        </li>
-        <li onclick="showSection('users', this)">
-          <a href="javascript:void(0)">👥 Manage Users</a>
-        </li>
-        <li onclick="showSection('adduser', this)">
-          <a href="javascript:void(0)">➕ Add User</a>
-        </li>
-        <li onclick="showSection('services', this)">
-          <a href="javascript:void(0)">🔧 Manage Services</a>
-        </li>
-        <li onclick="showSection('addservice', this)">
-          <a href="javascript:void(0)">➕ Add Service</a>
-        </li>
-        <li onclick="showSection('settings', this)">
-          <a href="javascript:void(0)">⚙️ Settings</a>
-        </li>
-        <li onclick="logoutAdmin()">
-          <a href="javascript:void(0)">🚪 Logout</a>
-        </li>
-      </ul>
-    </div>
 
-    Main Content
-    <div class="main-content">
-      <div class="dashboard-header">
-        <h1>Admin Dashboard</h1>
-        <div class="user-info">
-          <span id="adminName">Admin</span>
-          <button class="logout-btn" onclick="logoutAdmin()">Logout</button>
-        </div>
-      </div>
-
-      <div id="message" class="message"></div>
-
-      Overview Section
-      <div id="overview" class="dashboard-content active">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <h3>Total Users</h3>
-            <div class="value" id="totalUsers">0</div>
-          </div>
-          <div class="stat-card">
-            <h3>Admin Accounts</h3>
-            <div class="value" id="totalAdmins">1</div>
-          </div>
-          <div class="stat-card">
-            <h3>Regular Users</h3>
-            <div class="value" id="totalRegularUsers">0</div>
-          </div>
-          <div class="stat-card">
-            <h3>System Status</h3>
-            <div class="value" style="color: #27ae60;">Active</div>
-          </div>
-        </div>
-
-        <div class="table-container">
-          <h3>Recent Users</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Joined</th>
-              </tr>
-            </thead>
-            <tbody id="recentUsersTable">
-              <tr>
-                <td colspan="4" style="text-align: center; color: #7f8c8d;">No users yet</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      Manage Users Section
-      <div id="users" class="dashboard-content">
-        <div class="table-container">
-          <h2>Manage Users</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Joined Date</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="usersTable">
-              <tr>
-                <td colspan="5" style="text-align: center; color: #7f8c8d;">Loading users...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      Add User Section
-      <div id="adduser" class="dashboard-content">
-        <div class="form-section">
-          <h2>Add New User</h2>
-          <form id="addUserForm">
-            <div class="form-group">
-              <label for="fullname">Full Name *</label>
-              <input type="text" id="fullname" name="fullname" required>
-            </div>
-            <div class="form-group">
-              <label for="newemail">Email *</label>
-              <input type="email" id="newemail" name="newemail" required>
-            </div>
-            <div class="form-group">
-              <label for="newpassword">Password *</label>
-              <input type="password" id="newpassword" name="newpassword" required>
-            </div>
-            <div class="form-group">
-              <label for="newrole">Role *</label>
-              <select id="newrole" name="newrole" required>
-                <option value="">Select a role</option>
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
-            <button type="submit" class="submit-btn">Add User</button>
-          </form>
-        </div>
-      </div>
-
-      Settings Section
-      <div id="settings" class="dashboard-content">
-        <div class="form-section">
-          <h2>Admin Settings</h2>
-          <div style="margin-bottom: 20px;">
-            <h4>System Information</h4>
-            <p><strong>Admin Status:</strong> <span style="color: #27ae60;">Active</span></p>
-            <p><strong>Session Token:</strong> <span style="font-size: 12px; color: #7f8c8d;">Active</span></p>
-            <p><strong>Last Login:</strong> <span id="lastLogin">Just now</span></p>
-          </div>
-          <hr>
-          <h4>Account Management</h4>
-          <button class="submit-btn" onclick="alert('Password change feature coming soon!');" style="margin-bottom: 10px;">Change Password</button>
-          <button class="submit-btn" onclick="alert('Two-factor authentication coming soon!');">Enable 2FA</button>
-        </div>
-      </div>
-
-      Manage Services Section
-      <div id="services" class="dashboard-content">
-        <div class="table-container">
-          <h2>Manage Services</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Duration</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="servicesTable">
-              <tr>
-                <td colspan="6" style="text-align: center; color: #7f8c8d;">Loading services...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      Add Service Section
-      <div id="addservice" class="dashboard-content">
-        <div class="form-section">
-          <h2>Add New Service</h2>
-          <form id="addServiceForm">
-            <div class="form-group">
-              <label for="serviceTitle">Service Title *</label>
-              <input type="text" id="serviceTitle" name="serviceTitle" placeholder="e.g., Engine Service" required>
-            </div>
-            <div class="form-group">
-              <label for="serviceDescription">Description</label>
-              <input type="text" id="serviceDescription" name="serviceDescription" placeholder="Brief description of the service">
-            </div>
-            <div class="form-group">
-              <label for="serviceImage">Image URL</label>
-              <input type="text" id="serviceImage" name="serviceImage" placeholder="/images/service-name.jpg">
-            </div>
-            <div class="form-group">
-              <label for="servicePrice">Price ($) *</label>
-              <input type="number" id="servicePrice" name="servicePrice" min="0" step="0.01" placeholder="0.00" required>
-            </div>
-            <div class="form-group">
-              <label for="serviceDuration">Duration *</label>
-              <input type="text" id="serviceDuration" name="serviceDuration" placeholder="e.g., 1 hour, 2 hours" required>
-            </div>
-            <button type="submit" class="submit-btn">Add Service</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> -->
