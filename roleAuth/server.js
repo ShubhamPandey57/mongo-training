@@ -14,14 +14,14 @@ app.use(cookieparser())
 // Connect Database
 auth_ConnectDB();
 app.use(expressSession({
-    secret: process.env.SESSION_SECRET|| "mysecretkey", // use a strong secret in .env
-    resave: false, // don’t save session if unmodified
-    saveUninitialized: false, // don’t create session until something stored
-    cookie: { secure: false }, // set to true if using HTTPS
+    secret: process.env.SESSION_SECRET|| "mysecretkey", 
+    resave: false, 
+    saveUninitialized: false, 
+    cookie: { secure: false }, 
     store: MongoStore.create(
         { mongoUrl: 'mongodb://localhost/roleauthDB' }),
     cookie:{
-        maxAge:60*60*1000,          //1hour
+        maxAge:60*60*1000,         
         httpOnly:true
     }
   }))
